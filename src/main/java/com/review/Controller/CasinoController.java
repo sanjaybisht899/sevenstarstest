@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/casino")
 public class CasinoController {
     private CasinoService casinoService;
 
@@ -22,13 +22,25 @@ public class CasinoController {
     public String Test(){
         return "Program is working fine.";
     }
-    @GetMapping("/casinos")
+    @GetMapping
     public List<Casino> Test2(){
         return casinoService.getAllCasinos();
     }
-    @PostMapping("/casinos")
+    @PostMapping
     public ResponseEntity saveCasino(@RequestBody Casino casino){
         return new ResponseEntity<Casino>(casinoService.saveCasino(casino), HttpStatus.CREATED);
+    }
+    @GetMapping("{id}")
+    public ResponseEntity<Casino> getCasino(@PathVariable long id){
+        return new ResponseEntity<Casino>(casinoService.getCasino(id),HttpStatus.OK);
+    }
+    @PutMapping("{id}")
+    public ResponseEntity<Casino> updateCasino(@PathVariable long id, @RequestBody Casino casino){
+        return new ResponseEntity<Casino>(casinoService.updateCasino(casino,id),HttpStatus.OK);
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<Casino> deleteCasino(@PathVariable long id){
+        return new ResponseEntity<Casino>(casinoService.deleteCasino(id),HttpStatus.OK);
     }
 
 }
