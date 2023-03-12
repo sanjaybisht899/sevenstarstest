@@ -20,8 +20,6 @@ public class Casino{
     String summary;
     List<String> gameTypes;
 
-
-
     //Background Image
     //Image
     //Another Image

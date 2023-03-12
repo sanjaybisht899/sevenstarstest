@@ -69,4 +69,15 @@ public class CasinoServiceImpl implements CasinoService {
         casinoRepository.delete(current);
         return current;
     }
+
+    @Override
+    public Casino getCasinoByName(String name) {
+        List<Casino> tmp = casinoRepository.findAll();
+        for(Casino temp : tmp){
+            if(temp.getName().equals(name)){
+                return temp;
+            }
+        }
+        throw new ResourceNotFoundException("Casino", "Id",name);
+    }
 }

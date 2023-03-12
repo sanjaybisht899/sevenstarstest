@@ -9,5 +9,5 @@ public interface CasinoService {
     Casino getCasino(long id);
     Casino updateCasino(Casino casino,long id);
     Casino deleteCasino(long id);
-
+    Casino getCasinoByName(String name);
 }

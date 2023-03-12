@@ -34,6 +34,11 @@ public class CasinoController {
     public ResponseEntity<Casino> getCasino(@PathVariable long id){
         return new ResponseEntity<Casino>(casinoService.getCasino(id),HttpStatus.OK);
     }
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Casino> getCasinoByName(@PathVariable String name){
+        System.out.println(name);
+        return new ResponseEntity<Casino>(casinoService.getCasinoByName(name),HttpStatus.OK);
+    }
     @PutMapping("{id}")
     public ResponseEntity<Casino> updateCasino(@PathVariable long id, @RequestBody Casino casino){
         return new ResponseEntity<Casino>(casinoService.updateCasino(casino,id),HttpStatus.OK);
