@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/casino")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CasinoController {
     private CasinoService casinoService;
 

@@ -1,8 +1,6 @@
 package com.review.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -10,6 +8,7 @@ import java.util.List;
 @Entity
 public class Casino{
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     int id;
     String name;
     String heading;
